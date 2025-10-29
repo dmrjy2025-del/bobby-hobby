@@ -7,6 +7,7 @@ import { Label } from '../ui/label';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useCategories } from '../../contexts/CategoryContext';
 import { ImageIcon, UploadIcon, Trash2Icon, PlusIcon, Edit2Icon } from 'lucide-react';
+import BackButton from '../ui/BackButton';
 import { toast } from 'sonner';
 
 export function AdminSettingsPage() {
@@ -110,13 +111,16 @@ export function AdminSettingsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-            Website Settings
-          </h1>
-          <p style={{ color: '#5A5A5A' }}>
-            Customize your website appearance and branding
-          </p>
+        <div className="flex items-center gap-4">
+          <BackButton admin fallback="/admin" />
+          <div>
+            <h1 className="text-3xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+              Website Settings
+            </h1>
+            <p style={{ color: '#5A5A5A' }}>
+              Customize your website appearance and branding
+            </p>
+          </div>
         </div>
         <Button
           onClick={handleSaveAllChanges}

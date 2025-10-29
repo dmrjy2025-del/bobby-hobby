@@ -9,6 +9,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { User } from '../../contexts/AuthContext';
 import { UserIcon, MailIcon, SearchIcon, TrashIcon, ShieldIcon } from '../icons/Icons';
 import { toast } from 'sonner';
+import BackButton from '../ui/BackButton';
 
 export function AdminUsersPage() {
   const { t } = useLanguage();
@@ -53,12 +54,17 @@ export function AdminUsersPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-3xl md:text-4xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-            {t('userManagement')}
-          </h1>
-          <p style={{ color: '#5A5A5A' }}>
-            Manage registered users and their accounts
-          </p>
+          <div className="flex items-center gap-4 mb-2">
+            <BackButton admin fallback="/admin" onClick={() => undefined} />
+            <div>
+              <h1 className="text-3xl md:text-4xl" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+                {t('userManagement')}
+              </h1>
+              <p style={{ color: '#5A5A5A' }}>
+                Manage registered users and their accounts
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Stats Cards */}

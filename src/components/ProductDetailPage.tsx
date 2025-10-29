@@ -20,6 +20,7 @@ import {
   ChevronRightIcon, 
   CheckCircleIcon 
 } from './icons/Icons';
+import BackButton from './ui/BackButton';
 
 interface ProductDetailPageProps {
   productId: string;
@@ -149,15 +150,7 @@ export function ProductDetailPage({ productId, onNavigate, onBack }: ProductDeta
     <div className="min-h-screen" style={{ backgroundColor: '#d3d6e6' }}>
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
-        <Button
-          onClick={onBack}
-          variant="ghost"
-          className="mb-6"
-          style={{ color: '#2D2D2D' }}
-        >
-          <ChevronLeftIcon className="w-4 h-4 mr-2" />
-          Back
-        </Button>
+        <BackButton onClick={onBack} className="mb-6" style={{ color: '#2D2D2D' }} />
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Image Gallery */}

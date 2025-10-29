@@ -1,0 +1,38 @@
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  min-height: 44px; /* mobile touch target */
+  border-radius: 8px;
+  background: transparent;
+  color: #2d2d2d;
+  border: 1px solid rgba(45,45,45,0.08);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.back-button svg {
+  display: inline-block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.back-button:active,
+.back-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(45,45,45,0.04);
+}
+
+.back-button-text {
+  font-size: 14px;
+}
+
+/* sticky variant when used inside a sticky header */
+.back-button.sticky {
+  position: sticky;
+  top: 8px;
+  z-index: 40;
+  background: rgba(255,255,255,0.9);
+}

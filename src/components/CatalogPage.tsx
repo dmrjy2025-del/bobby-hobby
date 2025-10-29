@@ -13,6 +13,7 @@ import {
 import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
 import { motion } from "motion/react";
+import BackButton from './ui/BackButton';
 
 interface CatalogPageProps {
   onNavigate: (page: string) => void;
@@ -514,6 +515,17 @@ export function CatalogPage({ onNavigate, categoryFilter }: CatalogPageProps) {
           {/* Products Grid */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-4">
+                <BackButton onClick={() => undefined} />
+                <div>
+                  <h1 className="text-3xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+                    Catalog
+                  </h1>
+                  <p style={{ color: '#5A5A5A' }}>
+                    Browse the full product catalog
+                  </p>
+                </div>
+              </div>
               <p style={{ color: "#5A5A5A" }}>
                 Showing {filteredProducts.length} products
               </p>
@@ -522,9 +534,9 @@ export function CatalogPage({ onNavigate, categoryFilter }: CatalogPageProps) {
             {filteredProducts.length > 0 ? (
               <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {filteredProducts.map((product, index) => (
-                  <ProductCard
-                    key={product.id}
-                    id={product.id}
+                    <ProductCard
+                      key={product.id}
+                      id={String(product.id)}
                     name={product.name}
                     brand={product.brand}
                     price={product.price}

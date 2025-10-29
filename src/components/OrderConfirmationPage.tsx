@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { CheckCircleIcon, PackageIcon, ClockIcon, UploadIcon } from './icons/Icons';
 import { useLanguage } from '../contexts/LanguageContext';
+import BackButton from './ui/BackButton';
 import { useOrders } from '../contexts/OrderContext';
 
 interface OrderConfirmationPageProps {
@@ -57,25 +58,13 @@ export function OrderConfirmationPage({ onNavigate, orderId, totalIDR }: OrderCo
     <div className="min-h-screen flex items-center justify-center py-12 relative" style={{ backgroundColor: '#d3d6e6' }}>
       {/* Back button for desktop (left outside white card) */}
       <div className="hidden md:block absolute left-6 top-1/4">
-        <button
-          onClick={() => onNavigate('catalog')}
-          className="bg-white rounded-full p-3 shadow hover:bg-gray-50 transition"
-          aria-label="Back"
-        >
-          ←
-        </button>
+        <BackButton onClick={() => onNavigate('catalog')} className="bg-white shadow" ariaLabel="Kembali" />
       </div>
 
       <div className="container mx-auto px-4">
         {/* Back button for mobile (above card) */}
         <div className="block md:hidden mb-4">
-          <button
-            onClick={() => onNavigate('catalog')}
-            className="bg-white rounded-full p-3 shadow hover:bg-gray-50 transition"
-            aria-label="Back"
-          >
-            ← Back
-          </button>
+          <BackButton onClick={() => onNavigate('catalog')} className="bg-white shadow" ariaLabel="Kembali" />
         </div>
 
         <motion.div

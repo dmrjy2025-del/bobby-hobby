@@ -14,6 +14,7 @@ import {
   ShoppingCartIcon,
   CalendarIcon,
 } from "../icons/Icons";
+import BackButton from '../ui/BackButton';
 import { Badge } from "../ui/badge";
 import { Progress } from "../ui/progress";
 import { TrendingUpIcon } from "lucide-react";
@@ -91,19 +92,22 @@ export function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1
-          className="text-3xl mb-2"
-          style={{
-            fontFamily: "Berkshire Swash, cursive",
-            color: "#2D2D2D",
-          }}
-        >
-          Dashboard Overview
-        </h1>
-        <p style={{ color: "#5A5A5A" }}>
-          Welcome back! Here's what's happening today.
-        </p>
+      <div className="flex items-center gap-4">
+        <BackButton admin fallback="/admin" />
+        <div>
+          <h1
+            className="text-3xl mb-2"
+            style={{
+              fontFamily: "Berkshire Swash, cursive",
+              color: "#2D2D2D",
+            }}
+          >
+            Dashboard Overview
+          </h1>
+          <p style={{ color: "#5A5A5A" }}>
+            Welcome back! Here's what's happening today.
+          </p>
+        </div>
       </div>
 
       {/* Stats Grid */}

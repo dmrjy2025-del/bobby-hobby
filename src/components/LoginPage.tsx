@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import BackButton from './ui/BackButton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useAuth } from '../contexts/AuthContext';
 import { UserIcon, MailIcon, LockIcon } from './icons/Icons';
@@ -125,11 +126,14 @@ export function LoginPage({ onLoginSuccess, onClose }: LoginPageProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#d3d6e6' }}>
-      <motion.div
+        <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
+          <div className="mb-4">
+            <BackButton onClick={() => undefined} />
+          </div>
         <Card className="border-0 shadow-2xl">
           <CardHeader className="text-center pb-4">
             <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ backgroundColor: '#FF6B8B' }}>

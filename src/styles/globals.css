@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@400;500;600;700&display=swap');
 
-@custom-variant dark (&:is(.dark *));
+/* Removed unsupported at-rule "@custom-variant". Configure custom variants in Tailwind's config (e.g., add a "dark" variant that targets ".dark") or use the .dark selector directly in CSS. */
 
 :root {
   /* Bobby Hobby Custom Colors */
@@ -87,7 +87,7 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -234,4 +234,15 @@ h1, h2, h3, h4, h5, h6 {
     display: block !important;
     width: 100% !important;
   }
+}
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }

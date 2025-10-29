@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useOrders } from '../../contexts/OrderContext';
 import { PackageIcon, TruckIcon, CheckCircleIcon, ClockIcon, XCircleIcon } from '../icons/Icons';
+import BackButton from '../ui/BackButton';
 import { toast } from 'sonner';
 
 type OrderStatus = 'pending' | 'shipping' | 'arrived' | 'completed' | 'cancelled';
@@ -78,12 +79,17 @@ export function AdminOrdersPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-3xl md:text-4xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-            {t('orderManagement')}
-          </h1>
-          <p style={{ color: '#5A5A5A' }}>
-            Manage customer orders and update shipping status
-          </p>
+          <div className="flex items-center gap-4 mb-2">
+            <BackButton admin fallback="/admin" />
+            <div>
+              <h1 className="text-3xl md:text-4xl" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+                {t('orderManagement')}
+              </h1>
+              <p style={{ color: '#5A5A5A' }}>
+                Manage customer orders and update shipping status
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Stats Cards */}

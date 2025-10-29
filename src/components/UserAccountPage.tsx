@@ -13,6 +13,7 @@ import { useOrders } from '../contexts/OrderContext';
 import { useProducts } from '../contexts/ProductContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { UserIcon, MailIcon, PhoneIcon, MapPinIcon, PackageIcon, TruckIcon, EditIcon, PlusIcon, TrashIcon, HeartIcon, LockIcon, CakeIcon, ShoppingBagIcon, SettingsIcon } from './icons/Icons';
+import BackButton from './ui/BackButton';
 import { toast } from 'sonner';
 import { countries } from './CountryList';
 
@@ -200,13 +201,16 @@ export function UserAccountPage({ onNavigate, onLogout }: UserAccountPageProps) 
           className="mb-4 md:mb-8 relative"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4">
-            <div>
-              <h1 className="mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-                Hey, {user.fullName}! 👋
-              </h1>
-              <p style={{ color: '#5A5A5A' }}>
-                Welcome to your personal dashboard
-              </p>
+            <div className="flex items-center gap-4">
+              <BackButton onClick={() => undefined} />
+              <div>
+                <h1 className="mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+                  Hey, {user.fullName}! 👋
+                </h1>
+                <p style={{ color: '#5A5A5A' }}>
+                  Welcome to your personal dashboard
+                </p>
+              </div>
             </div>
 
             {/* Small logout button for web only (mobile uses global navbar/sheet) */}

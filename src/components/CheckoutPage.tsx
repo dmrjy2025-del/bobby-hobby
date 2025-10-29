@@ -10,6 +10,7 @@ import { useOrders } from '../contexts/OrderContext';
 import { useProducts } from '../contexts/ProductContext';
 import { toast } from 'sonner';
 import { CreditCardIcon, WalletIcon, PackageIcon, TruckIcon, ZapIcon, CheckCircleIcon, UploadIcon } from './icons/Icons';
+import BackButton from './ui/BackButton';
 
 interface CheckoutPageProps {
   onNavigate: (page: string) => void;
@@ -266,9 +267,12 @@ export function CheckoutPage({ onNavigate }: CheckoutPageProps) {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-6xl mx-auto"
         >
-          <h1 className="mb-8" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-            {t('checkout')}
-          </h1>
+          <div className="flex items-center gap-4 mb-8">
+            <BackButton onClick={() => undefined} />
+            <h1 className="mb-0" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+              {t('checkout')}
+            </h1>
+          </div>
 
           <form onSubmit={handlePlaceOrder}>
             <div className="grid lg:grid-cols-3 gap-8">

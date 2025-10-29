@@ -9,6 +9,7 @@ import { Checkbox } from '../ui/checkbox';
 import { useProducts, Product } from '../../contexts/ProductContext';
 import { PlusIcon, EditIcon, TrashIcon } from '../icons/Icons';
 import { Switch } from '../ui/switch';
+import BackButton from '../ui/BackButton';
 import { toast } from 'sonner';
 import {
   Dialog,
@@ -117,7 +118,6 @@ export function AdminProductsPage() {
     validateField('category', formData.category);
     return Object.keys(errors).length === 0;
   };
-
   const filteredProducts = products.filter(p => {
     const matchesSearch = searchQuery.trim() === '' || `${p.name} ${p.brand} ${p.category}`.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || (p.category === selectedCategory);
@@ -472,13 +472,16 @@ export function AdminProductsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
-            Product Management
-          </h1>
-          <p style={{ color: '#5A5A5A' }}>
-            Manage your product catalog
-          </p>
+        <div className="flex items-center gap-4">
+          <BackButton admin fallback="/admin" onClick={() => undefined} />
+          <div>
+            <h1 className="text-3xl mb-2" style={{ fontFamily: 'Berkshire Swash, cursive', color: '#2D2D2D' }}>
+              Product Management
+            </h1>
+            <p style={{ color: '#5A5A5A' }}>
+              Manage your product catalog
+            </p>
+          </div>
         </div>
 
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
